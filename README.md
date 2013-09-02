@@ -21,6 +21,17 @@ Consequently, at this time it is advisable not to use this library in your devel
 
 ![tool](https://dev.freeagent.com/images/interface/masthead/masthead.png)
 
+## Documentation
+
+To get started, add the following code, changing the default details to your developer details, to `config\initializers\freeagent.rb`
+
+```ruby
+require "freeagent"
+
+FreeAgent.access_details("access id", "secret id", "access token [not required]")
+```
+
+
 Todo
 --------------------
 * Finish all of the resources exposed by the API.
