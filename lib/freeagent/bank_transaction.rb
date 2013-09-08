@@ -10,27 +10,27 @@ module FreeAgent
     date_accessor :dated_on
 
     def self.find_all_by_bank_account(bank_account, options = {})
-      options.merge!(:bank_account => bank_account)
+      options.merge!(bank_account: bank_account)
       BankTransaction.filter(options) 
     end
 
     def self.unexplained(bank_account, options = {})
-      options.merge!(:view => 'unexplained', :bank_account => bank_account)
+      options.merge!(view: "unexplained", bank_account: bank_account)
       BankTransaction.filter(options)
     end
 
     def self.manual(bank_account, options = {})
-      options.merge!(:view => 'manual', :bank_account => bank_account)
+      options.merge!(view: "manual", bank_account: bank_account)
       BankTransaction.filter(options)
     end
 
     def self.imported(bank_account, options = {})
-      options.merge!(:view => 'imported', :bank_account => bank_account)
+      options.merge!(view: "imported", bank_account: bank_account)
       BankTransaction.filter(options)
     end
 
     def self.upload_statement(statement, bank_account)
-      raise FreeAgent::NotImplemented.new("FIXME Implement")
+      RestClient::Request.execute(method: :post, url: "#{FreeAgent::Client.site}/bank_transactions/statement?bank_account=#{bank_account}", payload: {statement: File.new(statement, "rb")}, headers: {"Authorization" => "Bearer #{FreeAgent.client.access_token.token}"})
     end
   end
 end
