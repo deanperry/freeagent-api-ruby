@@ -4,25 +4,8 @@ module FreeAgent
 
     resource_methods :find, :filter 
 
-    # attr_accessor :bank_account, :description, :is_manual, :bank_transactions_explanations
     attr_accessor :bank_account, :bank_transaction, :dated_on, :manual_sales_tax_amount, :description, :gross_value
     attr_accessor :foreign_currency_value, :rebill_type, :rebill_factor, :category, :attachment
-
-
-    # transfer_bank_account (Required when transferring money between accounts)
-    # asset_life_years (Required for capital asset purchase. The integer number of years over which the asset should be depreciated.)
-    # attachment Hash
-    # data must contain the binary data of the file being attached, encoded as Base64.
-    # file_name
-    # description
-    # content_type can be one of the following:
-    # image/png
-    # image/x-png
-    # image/jpeg
-    # image/jpg
-    # image/gif
-    # application/x-pdf
-
 
     decimal_accessor :gross_value
 
