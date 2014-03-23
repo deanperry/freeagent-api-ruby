@@ -58,6 +58,10 @@ module FreeAgent
       @access_token = OAuth2::AccessToken.new(@client, token)
     end
 
+    def fetch_refresh_token(token)
+      request(:post, "#{Client.site}/token_endpoint", refresh_token: token)
+    end
+
     def get(path, params={})
       request(:get, "#{Client.site}#{path}", :params => params).parsed
     end

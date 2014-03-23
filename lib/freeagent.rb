@@ -17,6 +17,7 @@ require 'freeagent/bank_account'
 require 'freeagent/estimate'
 require 'freeagent/expense'
 require 'freeagent/bank_transaction'
+require 'freeagent/bank_transaction_explanation'
 
 module FreeAgent
   class << self
