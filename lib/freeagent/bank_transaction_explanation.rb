@@ -74,7 +74,7 @@ module FreeAgent
           bank_transaction: bank_transaction,
           dated_on: date,
           gross_value: value,
-          transfer_bank_account: transfer_account
+          transfer_bank_account: "#{FreeAgent::Client.site}bank_accounts/#{transfer_account}"
         }
       }
     end
